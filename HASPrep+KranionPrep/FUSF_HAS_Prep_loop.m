@@ -76,10 +76,11 @@ for i = 1:NumSon
     catch
         continue;
     end
-    [xdim,ydim,zdim] = size(Q_rel);
-    xcent = round(xdim/2); ycent = round(ydim/2);
-
-    [temps,timevec] = runPennes_func(Q_rel(xcent-10:xcent+10,ycent-10:ycent+10,:),power_acou,timeDuration,pHAS);
+    % Note running Pennes requires power_acou and timeDuration vectors to be created from treatment export. This can
+    % be done using "energy_delivered3_func.m" before running simulations.  
+    %[xdim,ydim,zdim] = size(Q_rel);
+    %xcent = round(xdim/2); ycent = round(ydim/2);
+    %[temps,timevec] = runPennes_func(Q_rel(xcent-10:xcent+10,ycent-10:ycent+10,:),power_acou,timeDuration,pHAS);
 
     %% Run Pennes, convert to Kranion coordinate space, save outputs
     %pout = sum(pressar,4);
@@ -88,11 +89,11 @@ for i = 1:NumSon
     %load("CT_Volume.mat",'Size');
     %pressureInKranion = SaveToKranion(pout,pR.Foc_ijk,pHAS.xtilt,unTransform,Size(3),KRXfile,toKranion, 'pressure');
     %Q_relInKranion = SaveToKranion(Q_rel,pR.Foc_ijk,pHAS.xtilt,unTransform,Size(3),KRXfile,toKranion, 'Q_rel');
-    [maxTempValue, index] = max(temps(:));
-    [~,~,~,t] = ind2sub(size(temps), index);
+    %[maxTempValue, index] = max(temps(:));
+    %[~,~,~,t] = ind2sub(size(temps), index);
     %tempInKranion = SaveToKranion(temps(:,:,:,t),pR.Foc_ijk,pHAS.xtilt,unTransform,Size(3),KRXfile,toKranion, 'temp');
-    save(['SonicationData',num2str(i),'.mat'],'temps', 'timevec');
-    maxTempsSimulation{i} = maxTempValue; 
+    %save(['SonicationData',num2str(i),'.mat'],'temps', 'timevec');
+    %maxTempsSimulation{i} = maxTempValue; 
 end
-save('maxTempsSimulation.mat','maxTempsSimulation','pHAS');
+%save('maxTempsSimulation.mat','maxTempsSimulation','pHAS');
 end 
