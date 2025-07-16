@@ -37,4 +37,5 @@ Authors
 Taylor Webb, Zach Johnson, Dennis L. Parker, and Matthew Eames
 
 Hybrid Angular Spectrum and Pennes' Bioheat code from Nick Todd and Douglas Christensen
-June 19th, 2024
+
+July 16th, 2025
