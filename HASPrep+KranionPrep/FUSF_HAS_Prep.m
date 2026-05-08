@@ -47,7 +47,7 @@ end
 [pHAS] = FUSF_LoadHASphantom(fullfilepath,Vhas);
 pHAS.ctinxd = ctinxd;
 load([fullfilepath filesep 'SonicationParameters1.mat']);
-Vhas = cleanHASModel(Vhas,Foc_ijk(3));
+%Vhas = cleanHASModel(Vhas,Foc_ijk(3));
 fname = [fullfilepath filesep 'Modl.mat'];
 save(fname,'Vhas');
 maxTempsSimulation = {};
